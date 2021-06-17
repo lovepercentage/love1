@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-
-
 
 @charset "utf-8";
         @import url(http://weloveiconfonts.com/api/?family=fontawesome);
@@ -14,8 +14,8 @@
         }
 
         body {
-          background: rgb(224, 173, 220);
-          color: rgb(235, 117, 209);
+          background: white;
+          color: white;
           font: 87.5%/1.5em 'Open Sans', sans-serif;
           margin: 0;
         }
@@ -31,7 +31,7 @@
           width: 320px;
         }
 
-        .login form {
+            .login form {
           margin: auto;
           padding: 22px 22px 22px 22px;
           width: 100%;
@@ -42,7 +42,7 @@
         }
 
         .login form span {
-          background-color: #fc75de;
+          background-color: #363b41;
           border-radius: 3px 0px 0px 3px;
           border-right: 3px solid #434a52;
           color: #606468;
@@ -54,7 +54,7 @@
           height: 50px;
         }
 
-        .login form input[type="email"] {
+             .login form input[type="email"] {
           background-color: #3b4148;
           border-radius: 0px 3px 3px 0px;
           color: #a9a9a9;
@@ -64,7 +64,7 @@
           height: 50px;
         }
 
-        .login form input[type="password"] {
+            .login form input[type="password"] {
           background-color: #3b4148;
           border-radius: 0px 3px 3px 0px;
           color: #a9a9a9;
@@ -87,85 +87,52 @@
         #login form input[type="submit"]:hover {
           background: #16aa56;
         }
-        #div1{
-          font-size: 50px;
-          margin-top: -40px;
-          margin-left: 590px;
-          color: rgb(226, 81, 24);
-          
-          
-        }
-        #div2{
-         font-size: 20px;
-         color: rgb(238, 62, 18);
-          margin-top: 20px;
-          margin-left: 550px;
-          
-        }
-        
 
     </style>
-    </head>
-    <body>
 
-        <script>
+</head>
+<body>
+    <script>
+    //checking
+function check(){
+var storedName = localStorage.getItem('name');
+var storedPw = localStorage.getItem('pw');
 
-function store(){
+var userName = document.getElementById('userName');
+var userPw = document.getElementById('userPw');
+var userRemember = document.getElementById("rememberMe");
 
-var name = document.getElementById('name');
-var pw = document.getElementById('pw');
-var lowerCaseLetters = /[a-z]/g;
-var upperCaseLetters = /[A-Z]/g;
-var numbers = /[0-9]/g;
-
-if(name.value.length == 0){
-    alert('Please fill in email');
-
-}else if(pw.value.length == 0){
-    alert('Please fill in password');
-
-}else if(name.value.length == 0 && pw.value.length == 0){
-    alert('Please fill in email and password');
-
-
-
-
+if(userName.value == storedName && userPw.value == storedPw){
+    alert('You are logged in.');
 }else{
-    localStorage.setItem('name', name.value);
-    localStorage.setItem('pw', pw.value);
-    alert('Your account has been created');
+    alert('Error on login');
 }
 }
+</script>
 
+<div class="login">
+    <form name='form-login'>
 
+        <h1>SIGN IN</h1>
 
-        </script>
+        <label for="userName">Email</label>
+        <input type="email" id="userName" placeholder="Username" required>
 
-      <div id="div2"> know your love percentage between<br> you and your loved one</div><br>
+        <label for="userPw">Password</label>
+        <input type="password" id= "userPw" placeholder="Password" required>
 
-      <br><br><div id="div1" >lovebook</div>
-
-        <div class="login">
-            <form name='form-login'>
-        
-                <h1>REGISTER</h1>
-        
-                <label for="name">Email</label>
-                <input type="email" id="name" placeholder="Username" required>
-        
-                <label for="pw">Password</label>
-                <input type="password"
-                       id= "pw"
-                       placeholder="Password" required>
-        
-                
-                <input id="rgstr_btn" type="submit" value="Register" onclick="store()"><br><br>
-        
-                If error occure send me your Email ID on lovepercentagewb@gmail.com
-            </form>
-            
+        <div id="remember">
+            <input type="checkbox" value="lsRememberMe" id="rememberMe"
+                   style="display: inline-block;">
+            <label>Remember me</label>
         </div>
-        
-    </body>
 
-    </html>
+        <input id= "login_btn" type="submit" value="Login" onclick="check()">
+
+    </form>
+</div>
+
+
+</body>
+
+</html>
